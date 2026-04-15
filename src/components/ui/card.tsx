@@ -1,71 +1,9 @@
-import * as React from "react"
+import React from 'react';
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={`rounded-lg border border-slate-200 bg-white text-slate-950 shadow-sm ${className}`}
-    {...props}
-  />
-))
-Card.displayName = "Card"
+export const Card: React.FC = ({ children }) => { return <div className="bg-white shadow rounded p-4">{children}</div>; };
 
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={`flex flex-col space-y-1.5 p-6 ${className}`}
-    {...props}
-  />
-))
-CardHeader.displayName = "CardHeader"
-
-const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h2
-    ref={ref}
-    className={`text-2xl font-semibold leading-none tracking-tight ${className}`}
-    {...props}
-  />
-))
-CardTitle.displayName = "CardTitle"
-
-const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={`text-sm text-slate-500 ${className}`}
-    {...props}
-  />
-))
-CardDescription.displayName = "CardDescription"
-
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={`p-6 pt-0 ${className}`} {...props} />
-))
-CardContent.displayName = "CardContent"
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={`flex items-center p-6 pt-0 ${className}`}
-    {...props}
-  />
-))
-CardFooter.displayName = "CardFooter"
-
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export const CardHeader: React.FC = ({ children }) => <div className="font-bold text-lg">{children}</div>;
+export const CardTitle: React.FC = ({ children }) => <h2 className="text-xl">{children}</h2>;
+export const CardDescription: React.FC = ({ children }) => <p>{children}</p>;
+export const CardContent: React.FC = ({ children }) => <div>{children}</div>;
+export const CardFooter: React.FC = ({ children }) => <div className="mt-4">{children}</div>;
